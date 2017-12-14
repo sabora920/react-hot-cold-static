@@ -9,13 +9,22 @@ export default class Game extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            guessedNumber: ""
+            guessedNumber: "",
+            allGuesses: [12, 45]
         }
     }
 
     setGuessedNumber(number){
+        number = parseInt(number);
         this.setState({
             guessedNumber: number
+        })
+        this.setAllGuesses(number);
+    }
+
+    setAllGuesses(number){
+        this.setState({
+            allGuesses: [...this.state.allGuesses, number]
         })
     }
 
@@ -24,10 +33,10 @@ export default class Game extends React.Component {
             <div>
                 <Header />
                 <GuessSection feedback="Make your guess!" 
-                    value={this.state.guessedNumber}
-                    onChange={number => this.setGuessedNumber(number)}/>
-                <GuessCount count={3} />
-                <GuessList guesses={[10, 15, 25]} />
+                    getNumber={number => this.setGuessedNumber(number)}
+                />
+                <GuessCount count={this.state.allGuesses.length} />
+                <GuessList guesses={this.state.allGuesses} />
             </div>
         );     
     }

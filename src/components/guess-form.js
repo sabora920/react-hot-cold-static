@@ -7,10 +7,19 @@ export default function GuessForm(props) {
         <form>
             <input type="text" name="userGuess" id="userGuess"
                 className="text" maxLength="3" autoComplete="off"
-                placeholder="Enter your Guess" required 
-                value={props.value}
-                onChange={e => props.onChange(e.target.value)}/>
-            <input type="submit" id="guessButton" className="button" name="submit" value="Guess"/>
+                placeholder="Enter your Guess" required
+            />
+            <input
+                type="submit" 
+                id="guessButton" 
+                className="button" 
+                name="submit" 
+                value="Guess"
+                onClick={e => {
+                    e.preventDefault();
+                    props.getNumber(document.getElementById("userGuess").value);
+                }}
+            />
         </form>
     );
 };

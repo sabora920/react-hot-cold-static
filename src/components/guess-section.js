@@ -9,8 +9,8 @@ export default function GuessSection(props) {
         <section>
             <h2 id="feedback">{props.feedback}</h2>
             <GuessForm 
-                value={props.value}
-                onChange={value => props.onChange(value)}/>
+                getNumber={valueFromBtn => props.getNumber(valueFromBtn)}
+            />
         </section>
     );
 }
