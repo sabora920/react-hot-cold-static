@@ -12,7 +12,8 @@ export default class Game extends React.Component {
             guessedNumber: "",
             allGuesses: [],
             computerGuess: Math.floor(Math.random() * 100),
-            feedback: "Make Your Guess!"
+            feedback: "Make Your Guess!",
+            isInfoHidden: true
         }
     }
 
@@ -32,7 +33,6 @@ export default class Game extends React.Component {
     }
 
     setFeedback(number){
-        //
         if((number > (this.state.computerGuess - 10) && number < (this.state.computerGuess + 10))){
             this.setState({
                 feedback: "Hot!"
@@ -42,6 +42,12 @@ export default class Game extends React.Component {
                 feedback:"Cold!"
             })
         }
+    }
+
+    toggleHidden(){ 
+        this.setState({ 
+            isHidden: !this.state.isHidden 
+        }) 
     }
 
     render(){

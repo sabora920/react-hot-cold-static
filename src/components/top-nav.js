@@ -7,12 +7,12 @@ export default function TopNav(props) {
         <nav>
             <ul className="clearfix">
                 <li>
-                    <a className="what" href="#">
+                    <a className="what" href="./info-modal.js">
                         What?
                     </a>
                 </li>
                 <li>
-                    <a className="new" href="#">
+                    <a className="new" href="./game.js">
                         + New Game
                     </a>
                 </li>
